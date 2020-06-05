@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modify this file to customize your launch splash screen -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/white" />
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="139.5dp"
+    android:height="74dp"
+    android:viewportWidth="139.5"
+    android:viewportHeight="74">
 
-    <!-- You can insert your own image assets here -->
-    <!-- <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@mipmap/launch_image" />
-    </item> -->
-</layer-list>
+    <path
+        android:fillColor="#E89823"
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 66.1 17.7 C 76.2068109219 17.7 84.4 19.4013179506 84.4 21.5 C 84.4 23.5986820494 76.2068109219 25.3 66.1 25.3 C 55.9931890781 25.3 47.8 23.5986820494 47.8 21.5 C 47.8 19.4013179506 55.9931890781 17.7 66.1 17.7 Z" />
+    <path
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 64.4 25.1 L 74.1 46.5" />
+    <path
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 66.4 25.2 L 55.3 46.7" />
+    <path
+        android:fillColor="#E69723"
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M26,29.5c-0.2-1.7-0.4-3.4-0.7-5.2c-1.1-7.2-2.9-13.8-4.9-19.5" />
+    <path
+        android:fillColor="#E69723"
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 26 29.4 H 44.7 V 31.1 H 26 V 29.4 Z" />
+    <path
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 26 30.7 L 26 45.7" />
+    <path
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 44.6 30.7 L 44.6 45.7" />
+    <path
+        android:fillColor="#E69723"
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M105.5,30.1c0.2-1.7,0.4-3.4,0.7-5.2c1.1-7.2,2.8-13.8,4.7-19.5" />
+    <path
+        android:fillColor="#E69723"
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 87.5 29.6 H 105.6 V 31.3 H 87.5 V 29.6 Z" />
+    <path
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 105.5 31.4 L 105.5 46.4" />
+    <path
+        android:strokeColor="#231F20"
+        android:strokeWidth="1"
+        android:strokeMiterLimit="10"
+        android:pathData="M 87.5 31.4 L 87.5 46.4" />
+</vector>

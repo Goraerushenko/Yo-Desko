@@ -1,34 +1,61 @@
-import 'dart:async';
-
+import 'package:com/models/map/markers.dart';
+import 'package:com/widgets/map.dart';
+import 'package:com/widgets/preview-restaurant-info.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
-class RestaurantMap extends StatefulWidget {
+class RestaurantsPage extends StatefulWidget {
   @override
-  _RestaurantMapState createState() => _RestaurantMapState();
+  _RestaurantsPageState createState() => _RestaurantsPageState();
 }
 
-class _RestaurantMapState extends State<RestaurantMap> {
+class _RestaurantsPageState extends State<RestaurantsPage> {
 
-  Completer<GoogleMapController> _controller = Completer();
-
-  void _onMapCreated(GoogleMapController controller) {
-    _controller.complete(controller);
-  }
+  Markers _markers = Markers();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-            bearing: 192.8334901395799,
-            target: LatLng(37.43296265331129, -122.08832357078792),
-            tilt: 59.440717697143555,
-            zoom: 19.151926040649414
+    return MaterialApp(
+      home: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            FutureBuilder(
+              future: _markers.unpack(),
+              builder: (context, snapshot) {
+                if(snapshot.hasData) {
+                  return FutureBuilder(
+                    future: _markers.createMarkers(),
+                    builder: (context, snapshot) =>
+                      snapshot.hasData ?
+                        RestaurantMap (
+                          markers: _markers,
+                        ) :
+                        _progressIndicator (),
+                  );
+                } else {
+                  return _progressIndicator ();
+                }
+              },
+            ),
+            PreviewRestaurantInfo (
+              padding: MediaQuery.of(context).padding,
+              screenSize: MediaQuery.of(context).size,
+              markers: _markers,
+            )
+          ],
         ),
-        onMapCreated: _onMapCreated,
-        mapType: MapType.normal,
       ),
     );
   }
+  Widget _progressIndicator () => Container(
+    height: MediaQuery.of(context).size.height,
+    width: MediaQuery.of(context).size.width,
+    color: Colors.black54,
+    child: Center(
+      child: JumpingDotsProgressIndicator(
+        fontSize: 80.0,
+        color: Colors.white,
+      ),
+    ),
+  );
 }

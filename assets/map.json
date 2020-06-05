@@ -1,0 +1,20 @@
+[
+  {
+    "featureType": "landscape.man_made",
+    "elementType": "all",
+    "stylers": [
+      {
+        "color": "#f4f5fe"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "all",
+    "stylers": [
+      {
+        "color": "#c6d5ff"
+      }
+    ]
+  }
+]

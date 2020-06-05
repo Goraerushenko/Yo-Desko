@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "664819833826",
+    "firebase_url": "https://yodesko-9ee99.firebaseio.com",
+    "project_id": "yodesko-9ee99",
+    "storage_bucket": "yodesko-9ee99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664819833826:android:d37248745ce3eef3ff37bb",
+        "android_client_info": {
+          "package_name": "yodesko.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664819833826-qj40m3s3a2nvvaphdput4q8oeksnol9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuBx2wbjAZoZayuPSyjbbnAx9xuxYTUUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664819833826-qj40m3s3a2nvvaphdput4q8oeksnol9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
