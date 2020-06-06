@@ -64,7 +64,7 @@ class _MakeBookingPageState extends State<MakeBookingPage> with TickerProviderSt
 
   @override
   void initState() {
-    _bottomBtnCont = AnimationController (vsync: this, duration: Duration(milliseconds: 1000));
+    _bottomBtnCont = AnimationController (vsync: this, duration: Duration(milliseconds: 500));
     _bottomBtnAnim = ColorTween(begin: Colors.orange[200], end: Colors.orange).animate(_bottomBtnCont);
     _routeCont = AnimationController (vsync: this, duration: Duration(milliseconds: 500));
     _routeAnim = Tween(begin: 0.0, end: 1.0).animate(_routeCont);
@@ -230,7 +230,12 @@ class _MakeBookingPageState extends State<MakeBookingPage> with TickerProviderSt
   Widget _bottomBtn ({Animation<Color> colorAnim, Animation<double> routeAnim}) => Transform.translate(
     offset: Offset( 0, MediaQuery.of(context).size.height - AppBar().preferredSize.height * routeAnim.value),
     child: GestureDetector(
-      onTap: () => _bottomBtnCont.forward(),
+      onTap: () {
+        if (bookInfo.hasData) {
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+        }
+      },
       child: Container(
         height: AppBar().preferredSize.height,
         width: MediaQuery.of(context).size.width,
@@ -260,6 +265,7 @@ class _MakeBookingPageState extends State<MakeBookingPage> with TickerProviderSt
 
 
 class BookInfo {
+
   final Map<int,String> _monthsInYear = {
     1: 'Jan',
     2: 'Feb',
@@ -269,10 +275,11 @@ class BookInfo {
     6: 'Jun',
     12: "Dec"
   };
+
   double _peopleCount = 1;
   DateTime _date;
-  String _startTime = '';
-  String _endTime = '';
+  String _startTime;
+  String _endTime;
   BuildContext _context;
 
   String get date =>  _date == null ? '' : '${_monthsInYear[_date.month]} ${_date.day}, ${_date.year}';
