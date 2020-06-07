@@ -4,10 +4,15 @@ class CurrentImageLines extends StatelessWidget {
   CurrentImageLines ({
     Key key,
     this.length,
-    this.curPage
+    this.curPage,
+    this.width,
+    this.color
   }) : super (key: key);
+  final Color color;
+  final double width;
   final int length;
   final double curPage;
+
   List<int> _lenToArray (int length) {
     List<int> willReturn = [];
     for(int i = 0; i < length; i++){
@@ -25,7 +30,7 @@ class CurrentImageLines extends StatelessWidget {
             int _curPage = int.parse('${(curPage ?? 0.0)}'[0]);
             double nexPagePercent = (curPage ?? 0.0) - int.parse('${curPage ?? 0.0}'[0]);
             double curPagePercent = 1 - nexPagePercent;
-            double allLinesWidth = MediaQuery.of(context).size.width * .5;
+            double allLinesWidth = width ?? (MediaQuery.of(context).size.width * .5);
             double oneLineWidth = allLinesWidth / length - 10 ;
             return Row(
               children: <Widget>[
@@ -42,7 +47,7 @@ class CurrentImageLines extends StatelessWidget {
                       height: 5,
                       width: oneLineWidth*  (_curPage == i ? curPagePercent : nexPagePercent),
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: color ?? Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(20.0))
                       ),
                     ),

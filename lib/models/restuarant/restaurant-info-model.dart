@@ -14,13 +14,17 @@ class RestaurantInfo {
   Rating rating;
   String cost;
   LatLng geoPoint;
+
   bool get hasData => key != null;
 
   Future<void> unpack (DocumentId id) async {
     await Firestore.instance.collection('restaurantInfo').document(id.curId).get().then((snapshot) {
       key = snapshot['id'];
+
       geoPoint = id.location;
+
       cost = snapshot['cost'];
+
       rating = Rating(
         stars: snapshot['raiting']['stars'],
         votedPeople: snapshot['raiting']['votedPeople']

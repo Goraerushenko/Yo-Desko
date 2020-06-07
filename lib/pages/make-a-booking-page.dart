@@ -69,6 +69,7 @@ class _MakeBookingPageState extends State<MakeBookingPage> with TickerProviderSt
     _routeCont = AnimationController (vsync: this, duration: Duration(milliseconds: 500));
     _routeAnim = Tween(begin: 0.0, end: 1.0).animate(_routeCont);
     Future.delayed(Duration (milliseconds: 200), () => _routeCont.forward());
+    bookInfo.info = widget.info;
     super.initState();
   }
 
@@ -76,7 +77,7 @@ class _MakeBookingPageState extends State<MakeBookingPage> with TickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    bookInfo._context = context;
+    bookInfo.context = context;
     if (bookInfo.hasData && _bottomBtnCont.isDismissed) {
       _bottomBtnCont.forward();
     }
@@ -275,12 +276,13 @@ class BookInfo {
     6: 'Jun',
     12: "Dec"
   };
-
+  Address address = Address();
+  RestaurantInfo info;
   double _peopleCount = 1;
   DateTime _date;
   String _startTime;
   String _endTime;
-  BuildContext _context;
+  BuildContext context;
 
   String get date =>  _date == null ? '' : '${_monthsInYear[_date.month]} ${_date.day}, ${_date.year}';
 
@@ -294,9 +296,9 @@ class BookInfo {
 
   void setPeople (double count) => _peopleCount = count;
 
-  void setStartTime (TimeOfDay time) => _startTime = time.format(_context);
+  void setStartTime (TimeOfDay time) => _startTime = time.format(context);
 
-  void setEndTime (TimeOfDay time) => _endTime = time.format(_context);
+  void setEndTime (TimeOfDay time) => _endTime = time.format(context);
 
   void setDate (DateTime curDate) => _date = curDate;
 }
